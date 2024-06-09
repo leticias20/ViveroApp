@@ -1,0 +1,20 @@
+<h2>Mis Plantas</h2>
+<ul class="plantas">
+  <li *ngFor="let planta of plantas"
+    [class.selected]="planta === selectedPlanta"
+    (click)="onSelect(planta)">
+    <span class="badge">{{planta.id}}</span> {{planta.name}}
+  </li>
+</ul>
+
+<div *ngIf="selectedPlanta">
+
+  <h2>{{selectedPlanta.name | uppercase}} Details</h2>
+  <div><span>id: </span>{{selectedPlanta.id}}</div>
+  <div>
+    <label>nombre:
+      <input [(ngModel)]="selectedPlanta.name" placeholder="name"/>
+    </label>
+  </div>
+
+</div>
